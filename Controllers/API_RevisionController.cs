@@ -64,10 +64,10 @@ namespace API_Revision.Controllers
 
         [HttpPost("Add_Student")]
 
-        public async Task<string> AddStudent([FromBody] StudentsModel studentsModel)
+        public async Task<IActionResult> AddStudent([FromBody] StudentsModel studentsModel)
         {
             var data =await _studentRepository.AddStudent(studentsModel);
-            return data;
+            return Ok(data);
         }
 
         [HttpPut("Update_Student")]

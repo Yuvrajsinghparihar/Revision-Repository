@@ -75,7 +75,7 @@ namespace API_Revision.Repository
 
         }
 
-        public async Task<string> AddStudent(StudentsModel student)
+        public async Task<Students_Info> AddStudent(StudentsModel student)
         {
             var data = new Students_Info()
             {
@@ -85,7 +85,7 @@ namespace API_Revision.Repository
 
             _studentContext.Students_Info.Add(data);
             await _studentContext.SaveChangesAsync();
-            return "Success";
+            return data;
         }
 
         public async Task<string> updateStudent(int Id, StudentsModel student)
